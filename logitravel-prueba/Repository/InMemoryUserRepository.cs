@@ -2,19 +2,19 @@
 
 namespace logitravel_test {
   internal class InMemoryUserRepository : UserRepository {
-    private List<User> users;
+    private Dictionary<string, User> users;
 
     public InMemoryUserRepository() {
-      users = new List<User>();
+      users = new Dictionary<string, User>();
     }
 
     public override IEnumerable<User> GetAll() {
-      return users;
+      return users.Values;
     }
 
     public override void Insert(User user) {
-      if (!users.Contains(user)) {
-         users.Add(user);
+      if (!users.ContainsKey(user.Id)) {
+        users.Add(user.Id, user);
       }
     }
   }

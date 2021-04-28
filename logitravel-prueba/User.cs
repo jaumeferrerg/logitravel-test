@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace logitravel_test {
   public class User : IEquatable<User> {
-    string Id { get { return Name; } }
+    public string Id { get { return Name; } }
     string Name { get; }
     Messenger messenger;
     private List<int> bookedHotelIds;
